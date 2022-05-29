@@ -108,6 +108,103 @@ public static <T> filter(List<T> list, Predicate<T> p) {
 
 #### 2.4.1 Comparator와 Comparable
 
+```java
+public class ComparableComparatorTest {
+
+    public static void main(String[] args) {
+
+        TestClass[] testClass = new TestClass[10];
+        for (int i = 0; i < 10; i++) {
+            testClass[i] = new TestClass((int)(Math.random()*100));
+        }
+
+        // 정렬 전
+        for(int i = 0; i < 10; i++) {
+            System.out.print(testClass[i].value + " ");
+        }
+
+        System.out.println();
+
+        // comparator로 구현할때는 뒤에 인자로 comparator넘겨줘야 한다.
+        Arrays.sort(testClass, comparator);
+
+        // 정렬 이후
+        System.out.print("정렬 후 : ");
+        for(int i = 0; i < 10; i++) {
+            System.out.print(testClass[i].value + " ");
+        }
+        System.out.println();
+
+}
+
+    // 익명 클래스로 구현
+    static Comparator comparator = new Comparator<TestClass>() {
+        @Override
+        public int compare(TestClass o1, TestClass o2) {
+            return o2.value - o1.value;
+        }
+    };
+}
+
+/*class TestClass implements Comparable<TestClass> {
+
+    int value;
+
+    public TestClass(int value) {
+        this.value = value;
+    }
+
+    @Override
+    public int compareTo(TestClass o) {
+        // return this.value - o.value; // 오름차순
+        return o.value - this.value ; // 바꾸면 내림차순 됨
+    }
+}*/
+
+class TestClass {
+    int value;
+
+    public TestClass(int value) {
+        this.value = value;
+    }
+}
+```
+
 #### 2.4.2 Runnable
 
+```java
+public class ThreadEx {
+
+    public static void main(String[] args) {
+        ThreadExtended thread1 = new ThreadExtended();
+        Thread thread2 = new Thread(new ThreadImple());
+
+        thread1.run();
+        thread2.run();
+
+    }
+}
+
+class ThreadExtended extends Thread {
+    @Override
+    public void run() {
+        for (int i=0; i<10; i++) {
+            System.out.println(getName());
+        }
+    }
+}
+
+class ThreadImple implements Runnable {
+    @Override
+    public void run() {
+        for (int i=0; i<10; i++) {
+            System.out.println(Thread.currentThread().getName());
+        }
+    }
+}
+```
+
 #### 2.4.3 Callable 
+
++ Runnable은 리턴타입이 void
++ Callable은 Runnable과 같지만 차이가 있다면 리턴할 수 있다는 것
