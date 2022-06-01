@@ -47,18 +47,31 @@ void 반환하는 람다 표현식, Runnable인터페이스의 run 메서드 시
 ##람다 실행 어라운드 패턴
 -실행 어라운드 패턴 : 실제 자원을 처리하는 코드를 준비코드와 마무리코드 두 과정이 둘러싸는 형태를 가짐.
 
-public String processFile() throws IOException {
-	try(BufferedReader br = new BufferedReader(new FileReader("data.txt"))){
-		return br.readLine();
-	}
-}
-
-#람다 활용 4단계
+#실행 어라운드 패턴을 적용하는 4단계 과정
 1.동작 파라미터화를 기억
+	public String processFile() throws IOException {
+		try(BufferedReader br = new BufferedReader(new FileReader("data.txt"))){
+			return br.readLine();
+		}
+	}
 2.함수형 인터페이스를 이용해서 동작 전달
+	public interface BufferedReaderProcess{
+		String process(BufferedReader b) throws IOException;
+	}
+	
+	public String processFile(BufferedReaderProcess p)throws IOException{
+		...
+	}
 3.동작 실행
+	public String processFile(BufferedReaderProcess p) throws IOException{
+		try(BufferedReader br = new BufferedReader(new FileReader("data.txt"))){
+			return p.process(br);
+		}
+	}
+	
 4.람다 전달 
-
+	String oneLine = processFile((BufferedReader br) -> br.readLine());
+	String twoLines = processFile((BufferedReader br) -> br.readLine + br.readLine());
 #함수형 인터페이스, 형식 추론
 #메서드 참조
 #람다 만들기
