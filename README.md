@@ -2,7 +2,10 @@
 모던 자바 인 액션 스터디
 
 + 1주차 (05/23 ~ 05/29) : chapter1, 2
-
+  - [Comparator & Comparable](https://gist.github.com/HyangKeunChoi/ca1b5a1427a698044ba6dac3401a0464)
+  - 함수형 프로그래밍
+    - [참고](https://mangkyu.tistory.com/111)
+  
 + 2주차 (05/30 ~ 06/05) : chapter3
 
 + 3주차 (06/06 ~ 06/12) : chapter4
