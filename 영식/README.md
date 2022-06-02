@@ -7,4 +7,11 @@
 ## 🧗‍♀️ Chapter List
 
 - Chapter 1 [자바 8,9,10,11 : 무슨 일이 일어나고 있는가?](https://github.com/HyangKeunChoi/modern-java-in-action-study/tree/main/%EC%98%81%EC%8B%9D/Chapter1)
-- Chapter 2 
+- Chapter 2 [동작 파라미터화 코드 전달하기](https://github.com/HyangKeunChoi/modern-java-in-action-study/tree/main/%EC%98%81%EC%8B%9D/Chapter2)
+- Chapter 3 [람다표현식](https://github.com/HyangKeunChoi/modern-java-in-action-study/tree/main/%EC%98%81%EC%8B%9D/Chapter3)
+
+## Question List 
+1. 함수형 프로그래밍이란?
+2. 참조할 메서드는 static을 사용해야하는가? 
+3. for 와 stream의 차이점
+4. 병렬 프로그래밍
