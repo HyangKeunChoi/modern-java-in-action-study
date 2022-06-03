@@ -5,9 +5,12 @@
   - [Comparator & Comparable](https://gist.github.com/HyangKeunChoi/ca1b5a1427a698044ba6dac3401a0464)
   - 함수형 프로그래밍
     - [참고](https://mangkyu.tistory.com/111)
+    - [테코톡 : 함수형 프로그래밍](https://youtu.be/ii5hnSCE6No)
   
 + 2주차 (05/30 ~ 06/05) : chapter3
-
+  - [테코톡 : 춘식의 Stream](https://youtu.be/wsvhgrCGW78)
+  - [테코톡 : 차리의 Stream](https://youtu.be/rbm87IFpwvQ)
+  - [테코톡 : 크리스, 로마의 stream vs for](https://youtu.be/by8hb75i9X4)
 + 3주차 (06/06 ~ 06/12) : chapter4
 
 + 4주차 (06/13 ~ 06/19) : chapter5
