@@ -40,10 +40,14 @@
        }
   * 람다 전달
     String twoLines = processFile((BufferedReader br) -> br.readLine() + br.readLine());
- 
- 3.4 함수형 인터페이스 사용
- * Predicate<T>
+
+3.4 함수형 인터페이스 사용
+ * Predicate
     * 제너릭 형식의 T를 인수로 받아 boolean 반환, 따로 정의할 필요 없이 바로 사용할 수 있음
- * Consumer<T>
-    *  T
- 
+ * Consumer
+    * T 객체를 인수로 받아서 어떤 동작을 수행하고 싶을 때 사용
+ * Function
+    * 입력을 출력으로 맵핑하는 람다를 정의할 때 활용
+    * 박싱: 기본형(int, double, byte, char) 을 참조형으로 변환 (Integer, Byte, Object, List)
+    * 언박싱: 참조형을 기본현으로 변환
+    * 오토박싱: 박싱고 언박싱이 자동으로 이루어지도록 설정
