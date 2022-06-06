@@ -7,14 +7,14 @@
     - [참고](https://mangkyu.tistory.com/111)
     - [테코톡 : 함수형 프로그래밍](https://youtu.be/ii5hnSCE6No)
   
-+ 2주차 (05/30 ~ 06/05) : chapter3
++ 2주차 (05/30 ~ 06/12) : chapter3
   - [테코톡 : 춘식의 Stream](https://youtu.be/wsvhgrCGW78)
   - [테코톡 : 차리의 Stream](https://youtu.be/rbm87IFpwvQ)
   - [테코톡 : 크리스, 로마의 stream vs for](https://youtu.be/by8hb75i9X4)
   - [남궁성님 유튜브 : 람다](https://www.youtube.com/watch?v=3wnmgM4qK30)
   - [남궁성님 유튜브 : 함수형 인터페이스](https://www.youtube.com/watch?v=0Sp9eFRV8gE)
   
-+ 3주차 (06/06 ~ 06/19) : chapter4
++ 3주차 (06/13 ~ 06/19) : chapter4
 
 + 4주차 (06/20 ~ 06/26) : chapter5
 
@@ -22,7 +22,7 @@
 
 + 6주차 (07/04 ~ 07/10) : 휴식
 
-+ 7주차 (07/11 ~ 07/17) : chapter 7
++ 7주차 (07/11 ~ 07/17) : chapter7
 
 + 8주차 (07/18 ~ 07/24) : chapter8 
 
