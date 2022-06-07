@@ -9,12 +9,13 @@
 	간결성 : 익명 클래스만큼 많은 코드 사용x
 
 -람다 표현식 세부 내용
+
 '''java
 
 	(Apple a1,Apple a2)     -> 	  a1.getWeight().compareTo(a2.getWeight());
+		람다 파라미터		   화살표					람다 바디
 
-'''
- 	람다 파라미터		   화살표					람다 바디
+
 
 -람다 파라미터 : Comparator의 compare 메서드 파라미터
  화살표 : 람다의 파라미터 리스트와 바디 구분
@@ -22,7 +23,6 @@
  
  -람다 기본 문법
 
- 
  	(parameters) -> expression
  	(parameters) -> { statements; }
  	
@@ -31,9 +31,13 @@
 # 3.2.1 함수형 인터페이스
 -정확히 하나의 추상 메서드를 지정하는 인터페이스
 
-ex) public interface Predicate<T>{ 만약 여기서 extends 로 상속받을 경우, 함수형 인터페이스 아님.
+
+
+	 public interface Predicate<T>{ 만약 여기서 extends 로 상속받을 경우, 함수형 인터페이스 아님.
 		boolean test (T t);	
 	}
+	
+
 	
 -전체 표현식을 함수형 인터페이스의 인스턴스로 취급
 	
@@ -41,7 +45,7 @@ ex) public interface Predicate<T>{ 만약 여기서 extends 로 상속받을 경
 -시그니처(signature) 는 람다 표현식의 시그니처를 가리킴
 -표현식의 시그니처를 서술하는 메서드를 <함수 디스크립터> 라고 부른다
 
-'''java
+
 
 	public void process(Runnable r){
 		r.run();
@@ -51,7 +55,6 @@ ex) public interface Predicate<T>{ 만약 여기서 extends 로 상속받을 경
 
 	process(() -> System.out.println("awesome"));
 
-'''
 
 void 반환하는 람다 표현식, Runnable인터페이스의 run 메서드 시그니처와 같다.
  	
@@ -63,7 +66,8 @@ void 반환하는 람다 표현식, Runnable인터페이스의 run 메서드 시
 
 # 실행 어라운드 패턴을 적용하는 4단계 과정
 1.동작 파라미터화를 기억
-'''java
+
+
 
 	public String processFile() throws IOException {
 		try(BufferedReader br = new BufferedReader(new FileReader("data.txt"))){
@@ -71,9 +75,11 @@ void 반환하는 람다 표현식, Runnable인터페이스의 run 메서드 시
 		}
 	}
 	
-'''
+
+
 2.함수형 인터페이스를 이용해서 동작 전달
-'''java
+
+
 
 	public interface BufferedReaderProcess{
 		String process(BufferedReader b) throws IOException;
@@ -83,10 +89,11 @@ void 반환하는 람다 표현식, Runnable인터페이스의 run 메서드 시
 		...
 	}
 	
-'''
+
+
 3.동작 실행
 
-'''java
+
 
 	public String processFile(BufferedReaderProcess p) throws IOException{
 		try(BufferedReader br = new BufferedReader(new FileReader("data.txt"))){
@@ -94,16 +101,16 @@ void 반환하는 람다 표현식, Runnable인터페이스의 run 메서드 시
 		}
 	}
 	
-'''
+
 	
 4.람다 전달 
 
-'''java
+
 
 	String oneLine = processFile((BufferedReader br) -> br.readLine());
 	String twoLines = processFile((BufferedReader br) -> br.readLine + br.readLine());
 	
-'''
+
 # 함수형 인터페이스
 함수 디스크립터:함수형 인터페이스의 추상 메서드 시그니처
 -다양한 람다 표현식을 사용하려면 공통의 [함수 디스크립터]를 기술하는 [함수형 인터페이스] 집합 필요.
@@ -112,7 +119,7 @@ void 반환하는 람다 표현식, Runnable인터페이스의 run 메서드 시
 -test라는 추상 메서드를 정의하며
 -test는 제네릭 형식 T 의 객체를 인수로 받아 불리언 반환
 
-'''java
+
 	
 	@FunctionalInterface
 	public interface Predicate<T>{
@@ -131,13 +138,13 @@ void 반환하는 람다 표현식, Runnable인터페이스의 run 메서드 시
 	Predicate<String> nonEmptyStringPredicate = (String s) -> !s.isEmpty();
 	List<String> nonEmpty = filter(listOfStrings, nonEmptyStringPredicate);
 	
-'''
+
 
 >Consumer
 -accept라는 추상메서드를 정의하며
 -제네릭 형식 T 객체를 받아서 void를 반환
 
-'''java
+
 	
 	@FunctionalInterface
 	public interface Consumer<T> {
@@ -153,12 +160,12 @@ void 반환하는 람다 표현식, Runnable인터페이스의 run 메서드 시
 		(Integer i) -> System.out.println(i) --Consumer 의 accept 메서드를 구현하는 람다
 	);
 
-'''
+
 >Function
 -apply라는 추상메서드를 정의하며
 -제네릭 형식 T 객체를 받아서 제네릭 형식 R 객체를 반환
 
-'''java
+
 	
 	@FunctionalInterface
 	public interface Function<T, R> {
