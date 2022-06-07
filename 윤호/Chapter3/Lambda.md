@@ -72,7 +72,70 @@ void 반환하는 람다 표현식, Runnable인터페이스의 run 메서드 시
 4.람다 전달 
 	String oneLine = processFile((BufferedReader br) -> br.readLine());
 	String twoLines = processFile((BufferedReader br) -> br.readLine + br.readLine());
-#함수형 인터페이스, 형식 추론
+#함수형 인터페이스
+함수 디스크립터:함수형 인터페이스의 추상 메서드 시그니처
+-다양한 람다 표현식을 사용하려면 공통의 [함수 디스크립터]를 기술하는 [함수형 인터페이스] 집합 필요.
+
+>Predicate
+-test라는 추상 메서드를 정의하며
+-test는 제네릭 형식 T 의 객체를 인수로 받아 불리언 반환
+
+@FunctionalInterface
+public interface Predicate<T>{
+	boolean test(T t);
+}
+public <T> List<T> filter(List<T> list, Predicate<T> p){
+	List<T> results = new ArrayList<>();
+	for(T t: list){
+		if(p.test(t)){
+			results.add(t);
+		}
+	}
+	return results;
+}
+	
+Predicate<String> nonEmptyStringPredicate = (String s) -> !s.isEmpty();
+List<String> nonEmpty = filter(listOfStrings, nonEmptyStringPredicate);
+
+>Consumer
+-accept라는 추상메서드를 정의하며
+-제네릭 형식 T 객체를 받아서 void를 반환
+
+@FunctionalInterface
+public interface Consumer<T> {
+	void accept(T t);
+}
+public <T> void forEach(List<T> list, Consumer<T> c){
+	for(T t: list){
+		c.accept(t);
+	}
+}
+forEach(
+	Arrays.asList(1,2,3,4,5),
+	(Integer i) -> System.out.println(i) --Consumer 의 accept 메서드를 구현하는 람다
+);
+
+>Function
+-apply라는 추상메서드를 정의하며
+-제네릭 형식 T 객체를 받아서 제네릭 형식 R 객체를 반환
+
+@FunctionalInterface
+public interface Function<T, R> {
+	R apply(T t);
+}
+public <T, R> List<R> map(List<T> list, Function<T, R> f){
+	List<R> result = new ArrayList<>();
+	for(T t: list){
+		result.add(f.apply(t));
+	}
+	return result;
+}
+List<Integer> l = map(
+	Arrays.asList("lambdas", "in", "action"),
+	(String s) -> s.length() --Function 의 apply 메서드를 구현하는 람다
+);
+
+
 #메서드 참조
 #람다 만들기
 
