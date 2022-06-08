@@ -67,7 +67,7 @@ Comparator<Apple> byWeight =
 
 - 책 내용이 이해가 안되어서 구글링
 
-![책내용](./image/img1.png)
+![책내용](../image/img1.png)
 
 - `준비`와 `정리` 부분은 틀처럼 정해져 있고 실행부분만 바뀌는 코드의 형태
 
