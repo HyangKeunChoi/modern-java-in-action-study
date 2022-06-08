@@ -13,6 +13,7 @@
   - [테코톡 : 크리스, 로마의 stream vs for](https://youtu.be/by8hb75i9X4)
   - [남궁성님 유튜브 : 람다](https://www.youtube.com/watch?v=3wnmgM4qK30)
   - [남궁성님 유튜브 : 함수형 인터페이스](https://www.youtube.com/watch?v=0Sp9eFRV8gE)
+  - [실행 어라운드 패턴(Execute Around Pattern)이란](https://tourspace.tistory.com/68?category=788398)
   
 + 3주차 (06/13 ~ 06/19) : chapter4
 
