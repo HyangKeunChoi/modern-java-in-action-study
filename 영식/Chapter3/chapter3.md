@@ -105,3 +105,28 @@ String oneLine = processFile((BufferedReader br) -> br.readLine());
 String twoLines = processFile((BufferedReader br) -> br.readLine() + br.readLine());
 
 ```
+
+## 3.5 형식 검사 , 형식 추론 , 제약
+
+- 형식 검사 : 메서드 파라미터 , 함수형 인터페이스의 인스턴스에 할당되는 람다 등에서 기대되는 람다 표현식의 형식을 `대상 형식`
+
+  ⇒ 람다 표현식과 함수형 인터페이스의 형태의 같음을 검사하는 것을 `형식 검사`라 이해
+
+  - 형식 검사의 과정
+    1. 람다가 사용된 콘텍스트가 무엇인지 파악 → ex) filter의 정의를 확인
+
+       ⇒ filter(inventory , (Apple a) → a.getWeight() > 150 ) ; `람다 형식` 확인
+
+    2. 대상 형식은 Predicate<Apple> 이다
+
+       ⇒ filter ( List<Apple> inventory , Predicatie<Apple> p )
+
+    3. Predicate<Apple> 인터페이스의 추상 메서드 파악
+
+       boolean test(Apple apple)
+
+    4. Apple을 인수로 받아 boolean 반환하는 test 메서드
+
+       ⇒ Apple → boolean
+
+    5. 함수 디스크립터를 파악해서 람다의 시그니처와 비교 ⇒ 일치하면 형식 검사 완료
