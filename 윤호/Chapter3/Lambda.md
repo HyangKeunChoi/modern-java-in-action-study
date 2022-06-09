@@ -183,11 +183,101 @@ void 반환하는 람다 표현식, Runnable인터페이스의 run 메서드 시
 		(String s) -> s.length() --Function 의 apply 메서드를 구현하는 람다
 	);
 
-'''
+
 # 메서드 참조
-# 람다 만들기
+	
+	람다
+	(Apple apple) -> apple.getWeight()
+	메서드 참조	
+	(Apple :: getWeight)
+ 
 
+-메서드 참조는 가독성을 높일 수 있다.
+-메서드 참조의 세가지 유형
+	1.정적 메서드 참조
+		Integer 의 parseInt 메서드 --> Integer::parseInt
+	2.다양한 형식의 인스턴스 메서드 참조
+		String 의 length 메서드 --> String::length
+	3.기존 객체의 인스턴스 메서드 참조
+		getValue 메서드 있는 Transaction 의 객체를 할당받은 expensiveTransaction 지역변수 --> expensiveTransaction::getValue
 
+	List에 포함된 문자열 정렬 프로그램
+	List<String> str = Arrays.asList("a","b","A","B");
+	람다		str.sort((s1,s2) -> s1.compareToIgnoreCase(s2));
+	메서드참조	str.sort(String::compareToIgnoreCase);
+	
+	
+# 생성자 참조 와 메서드 참조 예제 코드
+
+**생성자 참조(인스턴스를 생성하는 경우)**
+ 
+	public static void main(){
+		List<String> memberNameList = List.of("A","B","C");
+		List<Member> memberList = memberNameList.stream()
+										.map(name -> new Member(name)).collect(Collectors.toList());
+		memberList.forEach(member -> Sysout(member.getName()));								
+	}
+	
+	public static class Member{
+		private String name;
+		
+		public Member(String name){
+			this.name = name;
+		}
+		
+		public String getName() {
+			return name;
+		}
+	}
+-상위 코드에서 memberList를 초기화 할 때 map메서드에서 람다식을 사용.
+	이 때, map에 포함되는 요소들은 String 객체지만, Member 클래스의 인스턴스를 만들 때 인자로 들어감
+	
+	//일반 람다식
+	List<Member> memberList = memberNameList.stream().map(name -> new Member(name)).collect(Collectors.toList());
+	//메서드 참조 표현식
+	List<Member> memberList = memberNameList.stream().map(Member::new).collect(Collectors.toList());
+	
+	//일반 람다식
+	(인자로 들어갈 객체 -> new 클래스명(인자로 들어갈 객체))
+	//메서드 참조 표현식
+	(클래스명::new)
+	
+	
+	
+**메서드 참조(인스턴스의 메서드를 참조하는 경우)**
+
+	public static void main(){
+		List<Member> memberList = Arrays.asList(new Member("A"),new Member("B"),new Member("C"));
+		String collect = memberList.stream().map(element -> element.getName()).collect(Collectors.joining());
+		Sysout(collect);	
+									
+	}
+	
+	public static class Member{
+		private String name;
+		
+		public Member(String name){
+			this.name = name;
+		}
+		
+		public String getName() {
+			return name;
+		}
+	}
+-상위 코드에서 map에 포함되는 요소들은 Member인스턴스 그리고 map내부에서 인스턴스의 메서드인 getName()호출.
+	람다 표현식에서 element가 두번씩 표현되는걸 방지
+	
+	//일반 람다식
+	String collect = memberList.stream().map(element -> element.getName()).collect(Collectors.joining());
+	//메서드 참조 표현식
+	String collect = memberList.stream().map(Member::getName).collect(Collectors.joining());
+	
+	//일반 람다식
+	(인스턴스 -> 인스턴스.메서드명)
+	//메서드 참조 표현식
+	(인스턴스의 클래스명::메서드명)
+	
+'''
 
 
 
