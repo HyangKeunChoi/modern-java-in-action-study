@@ -130,3 +130,180 @@ String twoLines = processFile((BufferedReader br) -> br.readLine() + br.readLine
        ⇒ Apple → boolean
 
     5. 함수 디스크립터를 파악해서 람다의 시그니처와 비교 ⇒ 일치하면 형식 검사 완료
+
+- 형식 추론 : 람다의 시그니처와 함수형 인터페이스의 추상메서드의 형태를 추론해서 파라미터 형태를 생략할 수 있다 .
+
+    ```java
+    Comparator<Apple> c = (Apple a1 , Apple a2) -> a1.getWeight().compareTo(a2.getWeight());
+    
+    Comparator<Apple> c = (a1 , a2) -> a1.getWeight().compareTo(a2.getWeight());
+    ```
+
+
+- 지역 변수 사용과 제약
+
+  람다 표현식의 바디에는 인수 뿐만아니라 **자유변수**(파라미터로 넘겨진 변수가 아닌 외부에서 정의된 변수) 를 사용 할 수 있다. ⇒ `람다 캡처링`
+
+    - 자유 변수에 있는 제약 : 인스턴스 변수와 정적 변수를 자유롭게 캡처할 수 있지만 그러려면 지역 변수엔 fianl로 선언되어 있어야 한다. ⇒ 람다 표현식은 한 번만 할당할 수 있는 지역 변수를 캡처할 수 있다.
+
+  ❓ 인스턴스 변수 , 정적 변수 , 지역변수 개념
+
+- 왜 지역 변수에는 제약이 필요한가?
+
+  ⇒ 인스턴스 변수와 지역 변수는 태생부터 다름 `인스턴스` 변수는 힙메모리에 , `지역` 변수는 스택 메모리에 위치
+
+  ❓ 힙메모리와 스택 메모리의 차이
+
+
+#### 🤦‍♂️ 지역 변수의 제약에 대한 이해는 바로 되진 않지만,  람다 표현식 안에 람다 캡처링을 사용할 변수는 값이 바뀌지 않아야 한다는 것으로 이해
+
+## 3.6 메서드 참조
+
+<aside>
+💡 메소드 참조(method reference)는 람다 표현식이 단 하나의 메소드만을 호출하는 경우에 해당 람다 표현식에서 불필요한 매개변수를 제거하고 사용할 수 있도록 해줍니다.
+
+</aside>
+
+- 특정 메서드를 참조하는 람다의 축약형 ⇒ 명시적인 메서드명을 넣어서 `가독성`을 높일 수 있음
+
+람다 → 메서드 참조 예제
+
+```java
+ (Apple apple) -> apple.getWeigth()  || Apple::getWeight
+ () -> Thread.currentThread().dumpStack() || Thread.currentThread()::dumpStack
+ (str , i ) -> str.substring(i) || String::substring 
+```
+
+### 메서드 만드는 방법
+
+1. 정적 메서드 참조
+2. 다양한 형식의 인스턴스 메서드 참조
+3. 기존 객체의 인스턴스 메서드 참조
+
+```java
+- 람다 표현식 
+(args) -> ClassName.staicMethod(args)
+-> 메서드 참조 ( 정적 메서드 참조 ) 
+ClassName::staticMethod 
+
+(arg0, rest) -> arg0.instanceMethod(rest)
+-> 인스턴스 메서드 참조 
+ClassName::instanceMethod 
+
+=> arg0 은 ClassName 타입
+
+(args) -> expr.instanceMethod(args) 
+-> expr:: instanceMethod ( 할당한 객체의 인스턴스 메서드 참조 ) 
+
+```
+
+- 메서드 참조 역시 함수형 인터페이스의 컨텍스트와 호환이 필요
+
+### 생성자 참조
+
+`ClassName::new` 를 사용해서 기존 생성자의 참조를 만들수 있다.
+
+함수형 인터페이스의 형식에 맞는 생성자가 있는  클래스는 new 생성자 참조로 객체를 생성할 수 있다.
+
+```java
+Apple ( Integer weight ) 생성자를 가지고 있는 Apple 클래스 
+
+Function<Integer , Apple> c2 = Apple::new; 
+Apple a2 = c2.apply(110);
+
+Function의 함수 디스크립터 
+Function<T,R> T -> R 
+
+생성자와 함수 디스크립터가 맞으므로 생성자를 참조해서 사용할 수 있다. 
+여기서 apply 함수의 매개변수 타입은 Integer , 반환 타입은 Apple이 되어있는 상태 
+
+```
+
+- 만약 인수가 세개인 생성자를 참조하기 위해선 함수형 인터페이스 중 인수 세개를 가진 인터페이스가 없으므로 새로운 인터페이스를 생성 후 진행해야한다.
+
+    ```java
+    Color 클래스의 생성자가 인수가 세개일 경우 
+    Color(int , int , int)
+    
+    public interface TriFunction<T,U,V,R> {
+    	R apply(T t , U u , V v );
+    }
+    
+    TriFunction<Integer , Integer , Integer , Color> colorFactory = Color::new 
+    ```
+
+
+## 3.7 람다, 메서드 참조 활용하기
+
+- 사과 리스트 정렬 문제를 단계별로 구현하기 (LIst API에서 제공하는 sort 메서드 활용 )
+- sort 메서드 형태
+
+  void sort(Comparator<? super E> c)
+
+
+### 1단계 Comparator 객체를 인수로 받기
+
+```java
+public Class AppleComparator implements Comparator<Apple> {
+	public int compare(Apple a1 , Apple a2) {
+		return a1.getWeight().compareTo(a2.getWeight());
+	}
+}
+inventory.sort(new AppleComparator());
+
+```
+
+### 2단계 익명 클래스
+
+- 한번만 사용할 경우 1번처럼 클래스를 새로 만드는 것보다 익명클래스를 이용하는 것이 좋다.
+
+```java
+inventory.sort(new Comparator<Apple>() {
+	public int compare(Apple a1 , Apple a2) {
+		return a1.getWeight().compareTo(a2.getWeight());
+	}
+});
+```
+
+### 3단계 람다 표현식 사용
+
+익명클래스보다 더 경량화된 문법을 사용하기 위해 람다 표현식 사용
+
+함수형 인터페이스 사용을 기대하는 곳이면 람다를 사용할 수 있다.
+
+- Comparator 의 함수 디스크립터는 (T , T ) → int
+
+```java
+inventory.sort((Apple a1 , Apple a2) -> 
+	a1.getWeight().compareTo(a2.getWeight())
+);
+
+형식 추론으로 더 줄일 수 있다. 
+
+inventory.sort((a1, a2) -> a1.getWeight().compareTo(a2.getWeight()));
+
+Comparator 안에는 Comparable 키를 추출해서 Comparator 객체를 만드는 정적메서드 comparing이 존재
+(Function 함수를 인수로 받음) 
+
+comparing 메서드를 사용해서 가독성 향상
+
+Function 함수 디스크립터 T -> R 
+Comparator<Apple> c = Comparator.comparing((Apple a) -> a.getWeight());
+
+간소화 
+import static java.util.Comparator.comparing;
+inventory.sort(comparing(apple -> apple.getWeight()));
+
+```
+
+![JAVA API DOC](../image/img2.png)
+
+### 4단계 메서드 참조 사용
+
+- 메서드 참조를 사용하면 람다 표현식의 인수를 더욱 깔끔하게 전달
+
+```java
+import static java.util.Comparator.comparing;
+
+inventory.sort(comparing(Apple::getWeight));
+```
