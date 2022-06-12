@@ -23,7 +23,7 @@
   - 등등 계속 있음...
   - [stream은 loop가 아니다](https://www.popit.kr/java8-stream%EC%9D%80-loop%EA%B0%80-%EC%95%84%EB%8B%88%EB%8B%A4/)
   - [stream api를 사용하며 실수하기 쉬운것들](https://hamait.tistory.com/547)
-  - (퀴즈)()
+  - [퀴즈](https://github.com/HyangKeunChoi/modern-java-in-action-study/blob/main/%ED%96%A5%EA%B7%BC/chapter4/quiz.md)
 
 + 4주차 (06/20 ~ 06/26) : chapter5 (스트림 활용)
 
