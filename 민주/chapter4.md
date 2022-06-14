@@ -13,12 +13,6 @@
   <img width="224" alt="image" src="https://user-images.githubusercontent.com/105032845/173594999-911aad01-6a67-43ee-9364-0835e9185818.png">
 
 
-
-        람다     람다    람다
-         ↓        ↓       ↓       
-menu → filter → sorted → map → collect
-
-
 * 자바8의 스트림 API의 특징을 다음처럼 요약할 수 있다.
   - 선언형 : 더 간결하고 가독성이 좋아진다.
   - 조립할 수 있음 : 유연성이 좋아진다.
