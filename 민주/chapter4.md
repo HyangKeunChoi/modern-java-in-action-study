@@ -10,7 +10,9 @@
   여러 연산을 파이프라인으로 연결해도 여전히 가독성과 명확성이 유지된다.
   filter 메서드의 결과는 sorted 메서드로, 다시 sorted 결과는 map 메서드로, map 메서드의 결과는 collect로 연결된다.
   
-  <img width="198" alt="image" src="https://user-images.githubusercontent.com/105032845/173594881-e978086f-6bf7-4bb8-8719-36220b9ee605.png">
+  <img width="224" alt="image" src="https://user-images.githubusercontent.com/105032845/173594999-911aad01-6a67-43ee-9364-0835e9185818.png">
+
+
 
         람다     람다    람다
          ↓        ↓       ↓       
@@ -38,3 +40,42 @@ menu → filter → sorted → map → collect
  - 대부분의 스트림 연산은 스트림 연산끼리 연결해서 커다란 파이프 라인을 구성할 수 있도록 스트림 자신을 반환한다. 그 덕분에 게으름, 쇼트서킷같은 최적화도 얻을 수 있다.
 5. 내부 반복
  - 반복자를 이용해서 명시적으로 반복하는 컬렉션과 달리 스트림은 내부 반복을 지원한다.
+
+4.3.1 딱 한 번만 탐색할 수 있다.
+- 반복자와 마찬가지로 스트림도 한 번만 탐색할 수 있다.
+  즉, 탐색된 스트림의 요소는 소비된다.
+  반복자와 마찬가지로 한 번 탐색한 요소를 다시 탐색하려면 초기 데이터 소스에서 새로운 스트림을 만들어야 한다.
+  
+List<String> title = Arrays.asList("Java8", "In", "Action");
+Stream<String> s = title.stream();
+s.forEach(System.put:println); -> title의 각 단어를 출력
+s.forEach(System.put:println); -> java.lang.IllegalStateException:스트림이 이미 소비되었거나 닫힘
+ * 스트림은 단 한 번만 소비할 수 있다는 점을 명심하자!
+  
+4.3.2 외부 반복과 내부 반복
+  - 컬렉션 인터페이스를 사용하려면 사용자가 직접 요소를 반복해야 한다.(예를 들면 for-each를 사용) 이를 외부 반복 이라고 한다.
+  - 스트림 라이브러리는(반복을 알아서 처리하고 결과 스트림값을 어딘가에 저장)내부 반복을 사용한다.
+  
+* 외부반복
+  List<String> names = new ArrayList<>();
+  for(Dish dish: menu) { // 메뉴 리스트를 명시적으로 순차 반복한다.
+    names.add(dish.getName()); // 이름을 추출해서 리스트에 추가한다.
+  }
+  
+* 내부반복
+  List<String> names = menu.stream()
+                      .map(Dish::getName) // map 메서드를 getName 메서드로 파라미터화해서 요리명을 추출한다.
+                      .collect(toList());
+4.4.3 스트림 이용하기
+ - 스트림 이용 과정은 다음고 같이 세 가지로 요약할 수 있다.
+   1. 질의를 수행할 (컬렉션 같은) 데이터 소스
+   2. 스트림 파이프라인을 구성할 중간 연산 연결
+   3. 스트림 파이프라인을 실행하고 결과를 만들 최종 연산
+  
+4.6 마치며
+  - 스트림은 소스에서 추출된 연속 요소로, 데이터 처리 연산을 지원한다.
+  - 스트림은 내부 반복을 지원한다. 내부 반복은 filter, map, sorted 등의 연산으로 반복을 추상화한다.
+  - 스트림에는 중간 연산과 최종 연산이 있다.
+  - 중간 연산은 filter와 map처럼 스트림을 반환하면서 다른 연산과 연결되는 연산이다.
+    중간 연산을 이용해서 파이프라인을 구성할 수 있지만 중간 연산으로는 어떤 결과도 생성할 수 없다.
+  - forEach나 count처럼 스트림 파이프라인을 처리해서 스트림이 아닌 결과를 반환하는 연산을 최종 연산이라고 한다.
