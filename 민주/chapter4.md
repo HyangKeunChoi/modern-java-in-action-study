@@ -10,6 +10,8 @@
   여러 연산을 파이프라인으로 연결해도 여전히 가독성과 명확성이 유지된다.
   filter 메서드의 결과는 sorted 메서드로, 다시 sorted 결과는 map 메서드로, map 메서드의 결과는 collect로 연결된다.
   
+  <img width="198" alt="image" src="https://user-images.githubusercontent.com/105032845/173594881-e978086f-6bf7-4bb8-8719-36220b9ee605.png">
+
         람다     람다    람다
          ↓        ↓       ↓       
 menu → filter → sorted → map → collect
