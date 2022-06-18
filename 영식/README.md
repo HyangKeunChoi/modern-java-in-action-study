@@ -11,9 +11,10 @@
 - Chapter 3 [람다표현식](https://github.com/HyangKeunChoi/modern-java-in-action-study/tree/main/%EC%98%81%EC%8B%9D/Chapter3)
 
 ## Question List 
-1. 함수형 프로그래밍이란?
-2. 참조할 메서드는 static을 사용해야하는가? 
-3. for 와 stream의 차이점
-4. 병렬 프로그래밍
-5. 실행 어라운드 패턴
+* 함수형 프로그래밍이란?
+* for 와 stream의 차이점
+* 병렬 프로그래밍
+* 실행 어라운드 패턴
    * [블로그 글](https://tourspace.tistory.com/68?category=788398)
+* 힙 , 스택 메모리란
+
