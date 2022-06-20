@@ -24,9 +24,30 @@
 3.2.2 함수 디스크립터
 > 함수형 인터페이스의 추상 메서드 시그니처는 람다 표현식의 시그니처를 가리킨다.
   람다 표현식의 시그니처를 서술하는 메서드를 함수 디스크립터라고 부른다.
-  
 
-?? 공부한거 날아감 개빡침
+
+3.4.3 Funtion
+> 자바의 모든 형식은 참조형(Byte, Integer, Object, List) 아니면 기본형(int, double, byte, char)에 해당한다.
+  하지만 제네릭 파라미터(예를 들면 Consumer<T>의 T)에는 참조형만 사용할 수 있다.
+> 자바에서는 기본형을 참조형으로 변환하는 기능을 제공한다. 이 기능을 박싱이라고 한다.
+  참조형을 기본형으로 변환하는 반대 동작을 언박싱이라고 한다.
+  프로그래머가 편리하게 코드를 구현할 수 있도록 박싱과 언박싱이 자동으로 이루어지는 오토박싱이라는 기능도 제공한다.
+  
+3.5.2 같은 람다, 다른 함수형 인터페이스
+> Predicate는 불리언 반환값을 갖는다.
+  Predicate<String> p = s -> list.add(s);
+  Consumer는 void 반환값을 갖는다.
+  Consumer<String> b = s -> list.add(s);
+  
+다음 코드를 컴파일할 수 없는 이유
+Object o = () > { Systema.out.println("Trickey example"); };
+> 람다 표현식의 콘텍스트는 Object(대상 형식)다. 하지만 Object는 함수형 인터페이스가 아니다.
+
+따라서 () -> void 형식의 함수 디스크립터를 갖는 Runnable로 대상 형식을 바꿔서 문제를 해결할 수 있다.
+Runnable r = () -> { Systema.out.println("Trickey example"); };
+
+람다 표현식을 명시적으로 대상 형식을 제공하는 Runnable로 캐스팅해서 문제를 해결할 수도 있다.
+Object o = (Runnable) () -> { Systema.out.println("Trickey example"); };
 
 3.5.3 형식 추론
 (형식을 추론하지 않음)
