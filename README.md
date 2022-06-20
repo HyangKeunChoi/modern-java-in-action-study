@@ -27,7 +27,7 @@
   - [퀴즈](https://github.com/HyangKeunChoi/modern-java-in-action-study/blob/main/%ED%96%A5%EA%B7%BC/chapter4/quiz.md)
   - [람다 , 스트림을 활용한 코딩테스트 풀이](https://yeonyeon.tistory.com/156)
   - [Lazy Evaluation](https://dororongju.tistory.com/137)
- 
+    - 은지
 + 4주차 (06/20 ~ 06/26) : chapter5 (스트림 활용)
 
 + 5주차 (06/27 ~ 07/03) : chapter6 (스트림으로 데이터 수집)
