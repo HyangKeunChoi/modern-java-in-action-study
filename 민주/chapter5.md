@@ -1,11 +1,13 @@
 5.1.2 고유 요소 필터링
 - 스트림은 고유 요소로 이루어진 스트림을 반환하는 distinct 메서드도 지원한다.(고유 여부는 스트림에서 만든 객체의 hashCode, equals로 결졍된다.)
-  List<Integer> numbers = Arrays.asList(1, 2, 1, 3, 3, 2, 4);
+
+```java  
+ List<Integer> numbers = Arrays.asList(1, 2, 1, 3, 3, 2, 4);
   numbers.stream()
          .filter(i -> i % 2 == 0 )
          .distinct()
          .forEach(System.out::println);
-  
+ ```
 5.2.1 프레디케이트를 이용한 슬라이싱
 - 자바 9은 스트림의 요소를 효과적으로 선택할 수 있도록 takeWhile, dropWhile 두 가지 새로운 메서드를 지원한다.
 
@@ -20,7 +22,7 @@
  5.2.2 스트림 축소
   - 스트림은 주어진 값 이하의 크기를 갖는 새로운 스트림을 반환하는 limit(n) 메서드를 지원한다.
     스트림이 정렬되어 있으면 최대 요소 n개를 반환할 수 있다.
-  
+```java   
 public static final List<Dish> menu = Arrays.asList(
       new Dish("pork", false, 800, Dish.Type.MEAT),
       new Dish("beef", false, 700, Dish.Type.MEAT),
@@ -37,7 +39,7 @@ public static final List<Dish> menu = Arrays.asList(
                                  .filter(dish -> dish.getCalories() > 300)
                                  .limit(3)
                                  .collect(toList());
-  
+```  
  -> pork
     beef
     chicken
