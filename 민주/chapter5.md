@@ -43,3 +43,25 @@ public static final List<Dish> menu = Arrays.asList(
  -> pork
     beef
     chicken
+    
+ 5.2.3 요소 건너뛰기
+ - 스트림은 처음 n개 요소를 제외한 스트림을 반환하는 skip(n) 메서드를 지원한다.
+   n개 이하의 요소를 포함하는 스트림에 skip(n)을 호출하면 빈 스트림이 반환된다.
+   limit(n)과 skip(n)은 상호 보완적인 연산을 수행한다.
+
+5.3.2 스트림 평면화
+* flatMap 사용
+  > flatMap 메서드는 스트림의 각 값을 다른 스트림으로 만든 다음에 모든 스트림을 하나의 스트림으로 연결하는 기능을 수행한다.
+
+'''java
+List<String> uniqueCharacters = 
+ words.stream()
+  .map(word -> word.split(""))
+  .flatMap(Arrays::stream)
+  .distinct()
+  . collect(toList());
+'''
+ -> HeloWrd
+ flatMap을 사용하지 않으면 Helo World
+ 
+ 
