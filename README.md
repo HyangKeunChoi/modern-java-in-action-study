@@ -28,23 +28,23 @@
   - [람다 , 스트림을 활용한 코딩테스트 풀이](https://yeonyeon.tistory.com/156)
   - [Lazy Evaluation](https://dororongju.tistory.com/137)
     - 은지
-+ 4주차 (06/20 ~ 06/26) : chapter5 (스트림 활용)
++ 4주차 (06/20 ~ 07/03) : chapter5 (스트림 활용)
   - [Stream api 문제모음](https://github.com/MangKyu/stream-quiz)
-+ 5주차 (06/27 ~ 07/03) : chapter6 (스트림으로 데이터 수집)
++ 5주차 (07/04 ~ 07/10) : chapter6 (스트림으로 데이터 수집)
 
-+ 6주차 (07/04 ~ 07/10) : 휴식
++ 6주차 (07/11 ~ 07/17) : 휴식
 
-+ 7주차 (07/11 ~ 07/17) : chapter7 (병렬 데이터 처리와 성능)
++ 7주차 (07/18 ~ 07/24) : chapter7 (병렬 데이터 처리와 성능)
 
-+ 8주차 (07/18 ~ 07/24) : chapter8 (컬렉션 API 개선)
++ 8주차 (07/25 ~ 07/31) : chapter8 (컬렉션 API 개선)
 
-+ 9주차 (07/25 ~ 07/31) : chapter9 (리팩터링, 테스팅, 디버깅)
++ 9주차 (08/01 ~ 08/07) : chapter9 (리팩터링, 테스팅, 디버깅)
 
-+ 10주차 (08/01 ~ 08/07) : chapter11 (null 대신 Optional 클래스)
++ 10주차 (08/08 ~ 08/14) : chapter11 (null 대신 Optional 클래스)
 
-+ 11주차 (08/08 ~ 08/14) : chapter12 (새로운 날짜와 시간 API)
++ 11주차 (08/15 ~ 08/21) : chapter12 (새로운 날짜와 시간 API)
 
-+ 12주차 (08/15 ~ 08/21) : chapter13 (디폴트 메서드)
++ 12주차 (08/22 ~ 08/28) : chapter13 (디폴트 메서드)
 
 마크다운 사용법 : https://gist.github.com/ihoneymon/652be052a0727ad59601
 
