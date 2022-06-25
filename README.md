@@ -29,7 +29,7 @@
   - [Lazy Evaluation](https://dororongju.tistory.com/137)
     - 은지
 + 4주차 (06/20 ~ 06/26) : chapter5 (스트림 활용)
-
+  - [Stream api 문제모음](https://github.com/MangKyu/stream-quiz)
 + 5주차 (06/27 ~ 07/03) : chapter6 (스트림으로 데이터 수집)
 
 + 6주차 (07/04 ~ 07/10) : 휴식
