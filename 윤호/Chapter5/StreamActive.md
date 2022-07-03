@@ -149,6 +149,37 @@
 		.ifPresent(dish -> System.out.println(Dish.getName())); //값 있으면 출력 없으면 안일어남
 ```
 
+
+### 리듀싱
+
+* 리듀스 연산    
+	- 모든 스트림 요소를 처리해서 값으로 도출(integer과 같은 결과가 나오게 하기 위함)
+	- 폴드 라고도 표현
+
+```java
+	
+	//요소의 합
+	int sum = 0;
+	for (int x : numbers) {
+		sum += x;
+	}
+	//sum 메서드 적용
+	int sum = numbers.stream()
+						.reduce(0, Integer::sum);
+	
+	//reduce 사용
+	int sum = numbers.stream()
+						.reduce(0, (a,b) -> a+b);
+						//곱셈 적용 
+						.reduce(1, (a,b) -> a*b);
+	
+	//최댓값 최솟값
+	Optional<Integer> max = numbers.stream()
+										.reduce(Integer::max)
+	Optional<Integer> min = numbers.stream()
+										.reduce(Integer::min)
+```
+
 	
 
 	
