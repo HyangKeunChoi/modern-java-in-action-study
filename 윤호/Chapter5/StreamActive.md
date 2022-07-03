@@ -177,7 +177,7 @@
 	Optional<Integer> max = numbers.stream()
 										.reduce(Integer::max)
 	Optional<Integer> min = numbers.stream()
-										.reduce(Integer::min)
+										.reduce(Integer::min) 
 ```
 
 	
