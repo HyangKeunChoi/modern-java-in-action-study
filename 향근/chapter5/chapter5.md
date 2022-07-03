@@ -99,3 +99,24 @@ Stream<Integer> stream = intStream.boxed();
 OptionalInt maxCalories = menu.stream().mapToInt(Dish::getCalories).max();
 int max = maxCaloreis.orElse(1);
 ```
+
+### 5.8 스트림 만들기
+### 5.8.1 값으로 스트림 만들기
+```java
+Stream<String> stream = Stream.of("Modern", "Java", "In", "Action");
+stream.map(String::toUpperCase).forEach(System.out::println);
+```
+
+### 5.8.2 null이 될 수 있는 객체로 스트림 만들기
+```java
+Stream<String> homeValueStream = Stream.ofNullable(System.getProperty("home"));
+```
+
+### 5.8.3 배열로 스트림 만들기
+```java
+int[] numbers = {2, 3, 5, 7, 11, 13};
+int sum = Arrays.stream(numbers).sum();
+```
+
+### 5.8.4 파일로 스트림 만들기
+### 5.8.5 함수로 무한 스트림 만들기
