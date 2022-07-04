@@ -27,9 +27,10 @@
   - [퀴즈](https://github.com/HyangKeunChoi/modern-java-in-action-study/blob/main/%ED%96%A5%EA%B7%BC/chapter4/quiz.md)
   - [람다 , 스트림을 활용한 코딩테스트 풀이](https://yeonyeon.tistory.com/156)
   - [Lazy Evaluation](https://dororongju.tistory.com/137)
-    - 은지
+    - 벌금 : 은지
 + 4주차 (06/20 ~ 07/03) : chapter5 (스트림 활용)
   - [Stream api 문제모음](https://github.com/MangKyu/stream-quiz)
+    - 벌금 : 영식이형, 원구
 + 5주차 (07/04 ~ 07/10) : chapter6 (스트림으로 데이터 수집)
 
 + 6주차 (07/11 ~ 07/17) : 휴식
