@@ -76,3 +76,89 @@
 
 
 ### 매핑
+
+- 특정 객체에 특정 데이터를 선택하는 작업
+
+ex ) SQL 테이블에 특정열만 선택하는 것
+
+- `map` , `flatMap` 메서드가 특정 데이터를 선택하는 기능을 제공
+
+### 5.3.1 스트림의 각 요소에 함수 적용
+
+```java
+List<String> dishNames = menu.stream().map(Dish::getName).collect(toList());
+/* 
+메뉴 스트림의 요리명을 추출하는 코드
+getName 메서드가 문자열을 반환하므로 map 메서드의 출력 스트림은 Stream<String> 형식 
+
+Map 메서드의 인수로 받는 함수의 결과가 새로운 요소로 매핑되는 것을 의미한다. 
+( 기존 값을 고치는 개념이 아닌 새로운 버전을 만든다는 개념 )
+변환에 가까운 매핑 
+
+*/
+```
+
+```java
+List<String> word = Arrays.asList("Modern" , "Java" , "In" , "Action");
+List<Integer> wordLengths = words.stream().map(String::length).collect(toList());
+
+/* 
+words 리스트의 스트림을 생성 후 String 인 리스트 데이터들의 length를 매핑해서 
+List<Integer> 데이터로 반환 
+*/
+```
+
+```java
+/* 요리명의 길이 */
+
+List<Integer> dishNameLengths = menu.stream().map(dish.getName).**map(String::length)**
+.collect(toList());
+```
+
+### 5.3.2 스트림 평면화
+
+❓ 평면화 뜻이 뭘까? → 데이터의 최소 단위를 나열하는 느낌?
+
+map을 통해 String 리스트에서 고유 문자로 이루어진 리스트를 반환하려고 하면
+
+List<String[]> 이 반환된다
+
+```jsx
+words : ["hello" , "World"]
+
+words.stream()
+.map(word -> word.split("")) // Stream<String[]>
+.distinct()
+.collect(toList()); // List<String[]> 
+
+//한글자 씩 리스트를 반환하고 싶은 목적과 다르다
+
+```
+
+- map 과 Arrays.stream 활용
+
+```jsx
+words.stream()
+.map(word -> word.split(""))
+.map(Arrays::stream) // 각 배열을 별도의 스트림으로 생성 
+.distinct()
+.collect(toList());
+
+// 결과값이 엄밀히 따지면 List<Stream<String>>이 만들어진다.
+```
+
+- flatMap 사용
+
+flatMap은 스트림의 콘텐츠를 매핑
+
+```java
+List<String> uniqueCharacters =
+	words.stream()
+		.map(word -> word.split(""))
+		.flatMap(Arrays::stream)
+		.distinct()
+		.collect(toList());
+```
+
+map으로 하기엔 작업이 많이 드는 과정 , flatMap 메서드를 사용해서 평면화 작업 진행
+
