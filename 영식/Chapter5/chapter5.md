@@ -162,3 +162,54 @@ List<String> uniqueCharacters =
 
 map으로 하기엔 작업이 많이 드는 과정 , flatMap 메서드를 사용해서 평면화 작업 진행
 
+## 5.4 검색과 매칭
+
+### anyMatch
+
+- 프레디케이트가 적어도 한 요소와 일치
+
+```java
+if(menu.stream().anyMatch(Dish::isVegetarian)) {
+	System.out.println("The menu is (someWhat) vegetarian friendly !!");
+}
+```
+
+### allMatch
+
+- 프레디케이트가 모든 요소와 일치하는지 검사
+
+### noneMatch
+
+- allMatch 와 반대 연산 실행 → 일치하는 요소가 없는지 확인
+
+### 쇼트 서킷 연산
+
+- 전체 스트림을 처리하지 않고 결과 반환
+  - and 연산으로 연결된 불리언 표현식이 있으면 하나라도 틀리면 거짓 결과가 나옴 → 나머지는 상관없이 그것은 거짓이 되어버림
+  - 쇼트서킷 연산은 무한한 스트림을 유한한 크기로 줄일 수 있다.
+  - allMatch , noneMatch , findFirst , findAny , limit 등이 쇼트서킷 연산
+
+## 5.5 리듀싱
+
+- 합계 , 최댓값 , 최솟값등 스트림 요소들을 조합해서 값을 도출하는 연산 → `폴드`라고도 부른다.
+
+### 요소의 합
+
+int sum = numbers.stream().reduce( 0 , (a,b)→ a+b);
+
+- 초깃값 = 0
+- a , b 를 더한다.
+
+int sum = numbers.stream().reduce(0 , Integer::sum);
+
+- 정적 메서드 sum을 사용해서 간결한 코드 사용
+- 초깃값 없이 사용 가능 ⇒ Optional로 반환
+
+Optional<Integer> sum = numbers.stream().reduce((a,b) → (a + b) );
+
+### 최댓값과 최솟값
+
+Optional<Integer> max = numbers.stream().reduce(Integer::max);
+
+Optional<Integer> min = numbers.stream().reduce(Integer::min);
+
