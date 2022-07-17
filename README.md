@@ -42,7 +42,8 @@
 + 9주차 (08/01 ~ 08/07) : chapter9 (리팩터링, 테스팅, 디버깅)
 
 + 10주차 (08/08 ~ 08/14) : chapter11 (null 대신 Optional 클래스)
-
+  - [남궁성 Optional](https://www.youtube.com/watch?v=W_kPjiTF9RI)
+  - [스프링캠프 2019 [Track 2 Mini-Session] : 자바에서 null을 안전히 다루는 방법 (박성철)](https://www.youtube.com/watch?v=vX3yY_36Sk4)
 + 11주차 (08/15 ~ 08/21) : chapter12 (새로운 날짜와 시간 API)
 
 + 12주차 (08/22 ~ 08/28) : chapter13 (디폴트 메서드)
