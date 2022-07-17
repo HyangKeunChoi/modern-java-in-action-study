@@ -30,6 +30,7 @@
     - 벌금 : 은지
 + 4주차 (06/20 ~ 07/03) : chapter5 (스트림 활용)
   - [Stream api 문제모음](https://github.com/MangKyu/stream-quiz)
+  - [for-loop를 Stream.forEach()로 바꾸지 말아야 할 3가지 이유](http://homoefficio.github.io/2016/06/26/for-loop-%EB%A5%BC-Stream-forEach-%EB%A1%9C-%EB%B0%94%EA%BE%B8%EC%A7%80-%EB%A7%90%EC%95%84%EC%95%BC-%ED%95%A0-3%EA%B0%80%EC%A7%80-%EC%9D%B4%EC%9C%A0/)
     - 벌금 : 영식이형, 원구
 + 5주차 (07/04 ~ 07/10) : chapter6 (스트림으로 데이터 수집)
 
@@ -38,6 +39,8 @@
 + 7주차 (07/18 ~ 07/24) : chapter11 (null 대신 Optional 클래스)
   - [남궁성 Optional](https://www.youtube.com/watch?v=W_kPjiTF9RI)
   - [스프링캠프 2019 [Track 2 Mini-Session] : 자바에서 null을 안전히 다루는 방법 (박성철)](https://www.youtube.com/watch?v=vX3yY_36Sk4)
+  - [Optional 바르게 쓰기](http://homoefficio.github.io/2019/10/03/Java-Optional-%EB%B0%94%EB%A5%B4%EA%B2%8C-%EC%93%B0%EA%B8%B0/#btn-open-shareoptions)
+  
 
 + 8주차 (07/25 ~ 07/31) : chapter12 (새로운 날짜와 시간 API)
 
