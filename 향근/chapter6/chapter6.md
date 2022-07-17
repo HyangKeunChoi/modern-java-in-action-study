@@ -67,7 +67,7 @@ Map<Dish.Type, List<Dish>> caloricDishesByType = menu.stream().filter(dish -> di
 ```java
 Map<Dish.Type, List<Dish>> caloricDishesByType = menu.stream().collect(groupingBy(Dish::getType, 
                                                                         filtering(dish -> dish.getCalories() > 500, toList())));
-``
+```
 
 > Collector 안으로 필터 프레디케이트를 이동함으로 이 문제를 해결 할 수 있다.
 
@@ -80,6 +80,3 @@ Map<Dish.Type, List<Dish>> caloricDishesByType = menu.stream().collect(groupingB
 Map<Boolean, Map<Dish.Type, List<Dish>>> vegetarianDishesByType = menu.stream().collect(
                                                                 partitioningBy(Dish::isVegetarian, groupingBy(Dish::getType)));
 ```
-
-
-
