@@ -35,20 +35,15 @@
 
 + 6주차 (07/11 ~ 07/17) : 휴식
 
-+ 7주차 (07/18 ~ 07/24) : chapter7 (병렬 데이터 처리와 성능)
-
-+ 8주차 (07/25 ~ 07/31) : chapter8 (컬렉션 API 개선)
-
-+ 9주차 (08/01 ~ 08/07) : chapter9 (리팩터링, 테스팅, 디버깅)
-
-+ 10주차 (08/08 ~ 08/14) : chapter11 (null 대신 Optional 클래스)
++ 7주차 (07/18 ~ 07/24) : chapter11 (null 대신 Optional 클래스)
   - [남궁성 Optional](https://www.youtube.com/watch?v=W_kPjiTF9RI)
   - [스프링캠프 2019 [Track 2 Mini-Session] : 자바에서 null을 안전히 다루는 방법 (박성철)](https://www.youtube.com/watch?v=vX3yY_36Sk4)
-+ 11주차 (08/15 ~ 08/21) : chapter12 (새로운 날짜와 시간 API)
 
-+ 12주차 (08/22 ~ 08/28) : chapter13 (디폴트 메서드)
++ 8주차 (07/25 ~ 07/31) : chapter12 (새로운 날짜와 시간 API)
 
-마크다운 사용법 : https://gist.github.com/ihoneymon/652be052a0727ad59601
++ 9주차 (08/01 ~ 08/07) : chapter13 (디폴트 메서드)
+
++ 마크다운 사용법 : https://gist.github.com/ihoneymon/652be052a0727ad59601
 
 ### 정리 방법
 
