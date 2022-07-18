@@ -33,7 +33,7 @@
   - [for-loop를 Stream.forEach()로 바꾸지 말아야 할 3가지 이유](http://homoefficio.github.io/2016/06/26/for-loop-%EB%A5%BC-Stream-forEach-%EB%A1%9C-%EB%B0%94%EA%BE%B8%EC%A7%80-%EB%A7%90%EC%95%84%EC%95%BC-%ED%95%A0-3%EA%B0%80%EC%A7%80-%EC%9D%B4%EC%9C%A0/)
     - 벌금 : 영식이형, 원구
 + 5주차 (07/04 ~ 07/10) : chapter6 (스트림으로 데이터 수집)
-
+    - 벌금 : 원구, 제우, 윤호, 은지
 + 6주차 (07/11 ~ 07/17) : 휴식
 
 + 7주차 (07/18 ~ 07/24) : chapter11 (null 대신 Optional 클래스)
