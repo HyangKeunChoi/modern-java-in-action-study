@@ -105,5 +105,44 @@
 		optPerson.map(person::getCar)
 			.map(Car::getInsurance)
 			.map(Insurance::getName);
+			
+	//flatMap사용 
+	public String getCarInsuranceName(Optional<Person> person){
+		return person.flatMap(Person::getCar) //Optional내부에 Person 에 Function을 적용 여기서 Person의 getCar메서드가 Optional<Car> 반환
+			.flatMap(Car::getInsurance)
+			.map(Insurance::getName)
+			.orElse("Unknown"); //결과Optional값 비어있으면 기본값으로 사용
+	}
+	
+	//사람 목록을 이용, 가입한 보험 회사 이름 찾기
+	public Set<String> getCarInsuranceName(List<Person> persons){
+		return persons.stream()
+			.map(Person::getCar) //Optional<Car> 스트림 변환
+			.map(optCar -> optCar.faltMap(Car::getInsurance)) //flatMap 사용 Optional<Car> 를 Optional<Insurance>로 변환
+			.map(optIns -> optIns.map(Insurance::getName)) //Insurance 를 String으로 변환
+			.flatMap(Optional::stream)
+			.collect(toSet());	
+	}
 ```
+# 두 Optional합치기 , 필터로 특정값 거르기
+
+```java
+	//optional이 값을 포함하는지 알려주는 isPresent메서드
+	public Optional<Insurance> nullSafeFindCheapestInsurance(Optional<Person> person, Optional<Car> car){
+		if(person.isPresent() && car.isPresent()){
+			return Optional.of(findCheapestInsurance(person.get() , car.get()))
+		}else{
+			return Optional.empty();
+		}
+		
+	}
+	
+	//필터
+	Optional<Insurance> optInsurance = ...;
+	optInsurance.filter(insurance -> "CambridgeInsurance".equals(insurance.getName()))
+		.ifPresent(x -> System.out.println("ok"));
+```
+
+
+
  
