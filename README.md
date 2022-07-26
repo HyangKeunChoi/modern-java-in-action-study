@@ -41,7 +41,7 @@
   - [스프링캠프 2019 [Track 2 Mini-Session] : 자바에서 null을 안전히 다루는 방법 (박성철)](https://www.youtube.com/watch?v=vX3yY_36Sk4)
   - [Optional 바르게 쓰기](http://homoefficio.github.io/2019/10/03/Java-Optional-%EB%B0%94%EB%A5%B4%EA%B2%8C-%EC%93%B0%EA%B8%B0/#btn-open-shareoptions)
   - [Guide To Java 8 Optional](https://www.baeldung.com/java-optional)
-  - 벌금 : 은지
+  - 벌금 : 영식이형, 은지
 + 8주차 (07/25 ~ 07/31) : chapter12 (새로운 날짜와 시간 API)
 
 + 9주차 (08/01 ~ 08/07) : chapter13 (디폴트 메서드)
