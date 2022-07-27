@@ -73,3 +73,17 @@ LocalDate date3 = date2.minusYear(6);        // 2011-09-28
 LocalDate date4 = date3.plus(6, ChronoUnit.MONTHS); // 2012-03-28
 ```
 
+12.2.2 날짜와 시간 객체 출력과 피싱
+- 포매팅과 파싱 전용 패키지인 java.time.format이 새로 추가되었다.
+- DateTimeFormatter 클래스는 BASIC_ISO_DATE와 ISO_LOCAL_DATE 등의 상수를 미리 정의하고 있다.
+
+```java
+LocalDate date = LocalDate.of(2014, 3, 18);
+String s1 = date.format(DateTimeFormatter.BASIC_ISO_DATE); // 20140318
+String s2 = date.format(DateTimeFormatter.ISO_LOCAL_DATE); // 2014-03-18
+```
+
+12.4 마치며
+- 자바 8 이전 버전에서 제공하는 기존의 java.util.Date 클래스와 관련 클래스에서는 여러 불일치점들과 가변성, 어설픈 오프셋, 기본값, 잘못된 이름 결정 등의 설계 결함이 존재했다.
+- 새로운 날짜와 시간API에서 날짜와 시간 객체는 모두 불변이다.
+- 새로운 API는 각각 사람과 기계가 편리하게 날짜와 시간 정보를 관리할 수 있도록 두 가지 표현 방식을 제공한다.
