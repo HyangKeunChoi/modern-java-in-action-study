@@ -45,6 +45,7 @@
 + 8주차 (07/25 ~ 07/31) : chapter12 (새로운 날짜와 시간 API)
   - [Java 날짜 시간 유형에 대한 고찰](https://jaimemin.tistory.com/1537)
   - [날짜와 시간 API with JAVA8](https://wickso.me/java/java-8-date-time/)
+    - 벌금 : 윤호, 은지
 + 9주차 (08/01 ~ 08/07) : chapter13 (디폴트 메서드)
 
 + 마크다운 사용법 : https://gist.github.com/ihoneymon/652be052a0727ad59601
