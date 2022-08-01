@@ -43,7 +43,7 @@
   - [Guide To Java 8 Optional](https://www.baeldung.com/java-optional)
   - 벌금 : 영식이형, 은지
 + 8주차 (07/25 ~ 07/31) : chapter12 (새로운 날짜와 시간 API)
-
+  - [Java 날짜 시간 유형에 대한 고찰] https://jaimemin.tistory.com/1537)
 + 9주차 (08/01 ~ 08/07) : chapter13 (디폴트 메서드)
 
 + 마크다운 사용법 : https://gist.github.com/ihoneymon/652be052a0727ad59601
