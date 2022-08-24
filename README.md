@@ -27,13 +27,13 @@
   - [퀴즈](https://github.com/HyangKeunChoi/modern-java-in-action-study/blob/main/%ED%96%A5%EA%B7%BC/chapter4/quiz.md)
   - [람다 , 스트림을 활용한 코딩테스트 풀이](https://yeonyeon.tistory.com/156)
   - [Lazy Evaluation](https://dororongju.tistory.com/137)
-    - 벌금 : 은지
+
 + 4주차 (06/20 ~ 07/03) : chapter5 (스트림 활용)
   - [Stream api 문제모음](https://github.com/MangKyu/stream-quiz)
   - [for-loop를 Stream.forEach()로 바꾸지 말아야 할 3가지 이유](http://homoefficio.github.io/2016/06/26/for-loop-%EB%A5%BC-Stream-forEach-%EB%A1%9C-%EB%B0%94%EA%BE%B8%EC%A7%80-%EB%A7%90%EC%95%84%EC%95%BC-%ED%95%A0-3%EA%B0%80%EC%A7%80-%EC%9D%B4%EC%9C%A0/)
-    - 벌금 : 영식이형, 원구
+
 + 5주차 (07/04 ~ 07/10) : chapter6 (스트림으로 데이터 수집)
-    - 벌금 : 원구, 제우, 윤호, 은지
+
 + 6주차 (07/11 ~ 07/17) : 휴식
 
 + 7주차 (07/18 ~ 07/24) : chapter11 (null 대신 Optional 클래스)
@@ -45,9 +45,9 @@
 + 8주차 (07/25 ~ 07/31) : chapter12 (새로운 날짜와 시간 API)
   - [Java 날짜 시간 유형에 대한 고찰](https://jaimemin.tistory.com/1537)
   - [날짜와 시간 API with JAVA8](https://wickso.me/java/java-8-date-time/)
-    - 벌금 : 윤호, 은지
+
 + 9주차 (08/01 ~ 08/07) : chapter13 (디폴트 메서드)
-  - 승민빼고... 다
+
   
 + 마크다운 사용법 : https://gist.github.com/ihoneymon/652be052a0727ad59601
 
